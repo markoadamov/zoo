@@ -1,5 +1,47 @@
+body{
+  background-color: #191919;
+  color: white;
+}
+
 .App {
   text-align: center;
+}
+
+.addAnimalDiv{
+  padding: 0.5%;
+  margin-top: 3%;
+}
+
+.dateFieldWidth{
+  width: 5%;
+}
+
+.centerButtonInCell{
+  display:flex;
+  /* centering the button */
+  align-items:center;
+  justify-content:center;
+}
+
+.Remove {
+  background-color: red;
+}
+
+table {
+  margin-top: 3%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #282828;
 }
 
 .App-logo {

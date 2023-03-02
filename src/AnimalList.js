@@ -1,11 +1,32 @@
-import React from 'react'
-import Animal from './Animal'
+import React from "react";
+import Animal from "./Animal";
 
-export default function AnimalList({animals}) {
-
+export default function AnimalList({ animals, removeEl, moveUp }) {
   return (
-            animals.map(element => {
-            return <Animal animal = {element} />
-        })
-  )
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Breed</th>
+          <th>Date Of Birth</th>
+          <th>Sector</th>
+        </tr>
+      </thead>
+      <tbody>
+        {animals.map((element, index) => {
+          return (
+            <tr key={index}>
+              <Animal animal={element} />
+              <th className="centerButtonInCell">
+                <button onClick={() => moveUp(index)}> MoveUp </button>
+              </th>
+              <th className="centerButtonInCell">
+                <button onClick={() => removeEl(element)}> Remove </button>
+              </th>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
 }

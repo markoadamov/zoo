@@ -1,16 +1,24 @@
-import React from 'react'
+import React from "react";
 
-export default function Animal({animal}) {
-    let month = animal.datum_rodjenja.getUTCMonth() + 1; //months from 1-12
-    let day = animal.datum_rodjenja.getUTCDate();
-    let year = animal.datum_rodjenja.getUTCFullYear();
+export default function Animal({ animal }) {
+  let month, day, year;
+  let datumR = animal.datum_rodjenja;
+
+  if (datumR) {
+    month = datumR.getMonth() + 1;
+    day = datumR.getDate();
+    year = datumR.getFullYear();
+  }
+
   return (
-    <div>
-      <p>Name: {animal.ime}</p>
-      <p>Breed: {animal.vrsta}</p>
-      <p>Date of Birth: {day + '.' + month + '.' + year}</p>
-      <br/>
-      <br/>
-    </div>
-  )
+    <>
+      <th>{animal.ime}</th>
+      <th>{animal.vrsta}</th>
+      <th>
+        {" "}
+        {datumR ? <p>{day + "." + month + "." + year}</p> : <p>Nepoznat</p>}
+      </th>
+      <th>{animal.sektor}</th>
+    </>
+  );
 }
